@@ -1,0 +1,203 @@
+@use "sass:map";
+@include img(cover);
+
+.wrapper {
+  max-width: 1360px;
+  @include boxModel(80%);
+  margin: $autoMargin;
+}
+
+.header {
+  @include boxModel(100%);
+  padding-top: 21px;
+  @include position(absolute, 0);
+
+  &__wrapper {
+    @include boxModel(93%);
+    margin: $autoMargin;
+    @include flex(true);
+  }
+
+
+  &__navigation {
+    flex: 1;
+    flex-shrink: 0;
+    @include flex(true);
+    flex-grow: 1;
+  }
+
+  &__nav-item {
+    padding: 15px 0;
+    margin-right: 3.5%;
+
+    &:nth-last-child(3) {
+      margin-right: 1%;
+    }
+
+    a {
+      @include font(map.get($colors, "white"), false, 14px, false, capitalize);
+
+      @include reverseResponsive(map.get($devices, "desktop")) {
+        &:hover {
+          color: #33d4d6;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      @include boxModel(7%);
+      margin-right: 2%;
+
+      @include reverseResponsive(map.get($devices,"desktop")){
+        &:hover .pages {
+          @include display(none, false, -1);
+        }
+      }
+
+      a {
+        text-transform: uppercase;
+      }
+    }
+
+    &:nth-child(5) {
+      @include boxModel(7%);
+      margin-right: 2%;
+
+      @include reverseResponsive(map.get($devices,"desktop")){
+        &:hover .blogs {
+        @include display(flex, false, -1);
+      }
+      }
+    }
+
+    &:nth-last-child(1) {
+      @include boxModel(17%);
+      padding: 0;
+      margin: 0;
+      flex-shrink: 0;
+      text-align: right;
+
+      a {
+        @include font(map.get($colors, "greenShade"), false, 12px);
+
+        @include reverseResponsive(map.get($devices, "desktop")) {
+          &:hover {
+            border-color: #fff;
+            background-color: map.get($colors, "black");
+            @include font(map.get($colors, "white"));
+          }
+        }
+      }
+
+      &:nth-last-child(2) {
+        @include boxModel(25%);
+        margin-right: 0;
+        flex-shrink: 0;
+
+        a {
+          @include boxModel(100%);
+          text-align: right;
+
+          &::before {
+            padding-right: 2%;
+            @include font(map.get($colors, "greenShade"));
+            @include icon('\f095');
+          }
+        }
+      }
+    }
+  }
+}
+
+nav {
+  flex: 1;
+  flex-shrink: 0;
+}
+
+.logo {
+  @include boxModel(25%);
+  padding-top: 15px;
+
+  a {
+    @include font(map.get($colors, "white"), false, 24px, 700);
+
+    @include reverseResponsive(map.get($devices, "desktop")) {
+      &::before {
+        padding: 8px;
+        @include border(false, 50%);
+        background-color: map.get($colors, "lightGreen");
+        @include font(map.get($colors, "white"));
+        @include icon('\e1b0');
+      }
+    }
+  }
+
+}
+
+.arrow {
+  &::after {
+    padding-left: 10%;
+    @include font(map.get($colors, "white"), false, 10px);
+    @include icon('\f107');
+  }
+
+ @include reverseResponsive(map.get($devices,"desktop")) {
+  &:hover::after {
+    @include icon('\f106');
+  }
+ }
+}
+
+.blogs,
+.pages {
+  @include display(none);
+  @include flex(false, false, false, false, column);
+}
+
+.btn-apply {
+  padding: 15px 10%;
+  @include border(1px solid #33d4d6, 7px);
+  @include display(inline-block);
+  @include font(map.get($colors, "greenShade"), false, false, false, uppercase, center);
+}
+
+.menu {
+  @include display(none);
+}
+
+@include responsive(map.get($devices,"tablet")) {
+.header {
+  .nav-wrapper {
+    @include boxModel(99%);
+}
+.logo {
+  @include boxModel(21%);
+}
+&__navigation {
+    @include flex(false,false,false,false,false,wrap);
+}
+
+&__nav-item {
+  margin-right: 2%;
+
+  &:nth-last-child(2) {
+   @include boxModel(21%);
+    margin: 0 1%;
+    a {
+      text-align: center;
+    }
+  }
+
+  &:nth-last-child(1) {
+    @include boxModel(20%);
+  }
+}
+}
+
+}
+
+@include responsive(map.get($devices,"largePhone")) {
+.wrapper {
+  @include boxModel(85%);
+}
+}

@@ -1,0 +1,4 @@
+.banner {
+  padding: 200px 0;
+  @include backgroundImage("../images/bg.jpg",rgba(0,0,0,.4),true);
+}
