@@ -1,0 +1,109 @@
+
+.quotes {
+  padding: 148px 0 174px 0;
+  @include flex(true);
+}
+
+.quotes figure {
+  @include boxModel(20%);
+  @include border(false,50%);
+  @include position(relative);
+  flex-shrink: 0;
+}
+
+.quotes figure::after {
+  padding: 21px;
+  @include border(false,50%);
+  @include display(inline-block);
+  @include position(absolute,65%,0);
+  background-color: map.get($colors,"greenShade");
+  @include font(map.get($colors,"greenShade"));  
+  color: #fff;
+  font-family: 'FontAwesome';
+  font-size: 21px;
+  font-weight: 900;
+  content: '\f10d';
+}
+
+.quotes figure img {
+  border-radius: 50%;
+}
+
+.feedback {
+  margin: 0 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-title {
+  padding: 53px 0 23px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.author {
+  color: #9d989b;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.controls {
+  width: 15%;
+  padding-top: 61px;
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  padding: 21px;
+  margin-bottom: 10%;
+  border-radius: 50%;
+  display: block;
+  font-family: 'FontAwesome';
+  font-size: 16px;
+  font-weight: 900;
+  background-color: #e6f3ff;
+  color: #7dc2ff;
+  text-indent: -9999px;
+}
+
+.control:nth-child(1):hover::after,
+.control:nth-child(2):hover::after {
+  color: #000;
+}
+
+.control:nth-child(1)::after {
+  text-indent: 0;
+  float: right;
+  content: '\f105';
+}
+
+.control:nth-child(2)::after {
+  text-indent: 0;
+  float: right;
+  content: '\f104';
+}
+
+.brands {
+  padding-bottom: 32px;
+  display: flex;
+}
+
+.brand {
+  margin-right: 5%;
+}
+
+.brand:last-child {
+  margin-right: 0;
+}
+
+.brands figure {
+  max-height: 41px;
+  overflow: hidden;
+}
+
+.brands figure img {
+  object-position: center;
+}
+

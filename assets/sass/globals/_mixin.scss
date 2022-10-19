@@ -12,10 +12,15 @@
 }
 
 
-@mixin backgroundImage($url, $rgba, $overlay) {
-
-  background: url($url) $rgba center no-repeat;
-  background-size: cover;
+@mixin backgroundImage($url, $rgba:false, $overlay:false) {
+  @if $url and $rgba {
+    background: url($url) $rgba center no-repeat;
+    background-size: cover;
+  }
+  @else {
+    background: url($url)  center no-repeat;
+    background-size: cover;
+  }
 
   @if $overlay {
     background-blend-mode: overlay;

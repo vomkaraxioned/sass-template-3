@@ -1,0 +1,63 @@
+.faq {
+  &__wrapper {
+    @include boxModel(100%);
+    @include flex(true);
+
+    figure {
+      @include boxModel(50%);
+      max-height: 700px;
+      overflow: hidden;
+    }
+  }
+
+  &__frequent-question {
+    @include boxModel(45%);
+    padding: 140px 0;
+    margin-left: 6%;
+  }
+
+  &__title {
+    padding-bottom: 67px;
+    @include font(false,false,42px);
+  }
+  
+}
+
+.faqs {
+  @include flex(true,false,false,false,column);
+
+  &__faq {
+    @include boxModel(77%);
+    margin-bottom: 25px;
+    box-shadow: 0 1px #cdcdcd;
+  }
+  
+  &__title {
+    padding-bottom: 17px;
+    @include font(false,false,18px);
+    ::before {
+      padding-right: 5%;
+      @include font(map.get($colors,"blackShade"));
+      @include icon('\f107');
+    }
+  }
+
+  &__answer {
+    @include boxModel(95%);
+    padding: 17px 5% 37px 5%;
+    @include display(none);
+    @include font(map.get($colors,"brown"),false,16px,500);
+    line-height: 1.8;
+  }
+
+}
+
+.active::before {
+  @include icon('\f106');
+}
+
+.active {
+  .faqs__answer {
+    @include display(block);
+  }
+}

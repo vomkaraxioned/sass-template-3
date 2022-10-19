@@ -1,4 +1,3 @@
-@use "sass:map";
 @include img(cover);
 
 .wrapper {
@@ -48,7 +47,7 @@
       @include boxModel(7%);
       margin-right: 2%;
 
-      @include reverseResponsive(map.get($devices,"desktop")){
+      @include reverseResponsive(map.get($devices, "desktop")) {
         &:hover .pages {
           @include display(none, false, -1);
         }
@@ -63,10 +62,10 @@
       @include boxModel(7%);
       margin-right: 2%;
 
-      @include reverseResponsive(map.get($devices,"desktop")){
+      @include reverseResponsive(map.get($devices, "desktop")) {
         &:hover .blogs {
-        @include display(flex, false, -1);
-      }
+          @include display(flex, false, -1);
+        }
       }
     }
 
@@ -141,11 +140,11 @@ nav {
     @include icon('\f107');
   }
 
- @include reverseResponsive(map.get($devices,"desktop")) {
-  &:hover::after {
-    @include icon('\f106');
+  @include reverseResponsive(map.get($devices, "desktop")) {
+    &:hover::after {
+      @include icon('\f106');
+    }
   }
- }
 }
 
 .blogs,
@@ -163,41 +162,86 @@ nav {
 
 .menu {
   @include display(none);
+
+  &:hover {
+    color: #33d4d6;
 }
 
-@include responsive(map.get($devices,"tablet")) {
-.header {
-  .nav-wrapper {
-    @include boxModel(99%);
-}
-.logo {
-  @include boxModel(21%);
-}
-&__navigation {
-    @include flex(false,false,false,false,false,wrap);
 }
 
-&__nav-item {
-  margin-right: 2%;
+@include responsive(map.get($devices, "tablet")) {
+  .header {
+    .nav-wrapper {
+      @include boxModel(99%);
+    }
 
-  &:nth-last-child(2) {
-   @include boxModel(21%);
-    margin: 0 1%;
-    a {
-      text-align: center;
+    .logo {
+      @include boxModel(21%);
+    }
+
+    &__navigation {
+      @include flex(false, false, false, false, false, wrap);
+    }
+
+    &__nav-item {
+      margin-right: 2%;
+
+      &:nth-last-child(2) {
+        @include boxModel(21%);
+        margin: 0 1%;
+
+        a {
+          text-align: center;
+        }
+      }
+
+      &:nth-last-child(1) {
+        @include boxModel(20%);
+      }
     }
   }
 
-  &:nth-last-child(1) {
-    @include boxModel(20%);
+}
+
+@include responsive(map.get($devices, "ipad")) {
+  .header {
+    .navigation {
+      @include display(none);
+    }
   }
+  .logo {
+   @include boxModel(50%);
+    padding-top: 0;
+}
+
+.menu {
+    padding-right: 5%;
+    @include display(block);
+    display: block;
+    @include font(map.get($colors,"white"),false,21px);
+    text-indent: -9999px;
+
+    &::before {
+      @include icon('\f0c9',true)
+    }
+}
+
+.information {
+  @include flex(false,false,false,center,column);
+}
+.how-it-works {
+    padding: 40px 0;
+    margin: 0;
+    text-align: center;
+}
+.how-it-works h2 {
+    @include boxModel(100%);
+    text-align: center;
 }
 }
 
-}
-
-@include responsive(map.get($devices,"largePhone")) {
-.wrapper {
-  @include boxModel(85%);
-}
+@include responsive(map.get($devices, "largePhone")) {
+  .wrapper {
+    @include boxModel(85%);
+  }
 }

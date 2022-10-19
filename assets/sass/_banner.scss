@@ -1,4 +1,141 @@
 .banner {
   padding: 200px 0;
-  @include backgroundImage("../images/bg.jpg",rgba(0,0,0,.4),true);
+  @include backgroundImage("../images/bg.jpg", rgba(0, 0, 0, .4), true);
+
+  &__information {
+    @include flex(true);
+  }
+
+  &__how-it-works {
+    padding: 103px 0 87px 0;
+
+    h2 {
+      @include boxModel(80%);
+      padding-bottom: 44px;
+      @include font(map.get($colors, "white"), false, 56px, false, lowercase);
+      line-height: 1.3;
+
+      span {
+        @include font(map.get($colors, "white"), false, 56px, false, capitalize);
+      }
+    }
+  }
+
+  &__pay {
+    padding-bottom: 46px;
+    @include font(map.get($colors, "brown"), false, 16px);
+    color: #9d989b;
+    font-size: 16px;
+  }
+
+  &__month {
+    padding: 14px 0 42px 0;
+  }
+}
+
+.info-btn {
+  padding: 15px 4.5%;
+  @include border(false, 5px);
+  background-color: map.get($colors, "greenShade");
+  @include font(map.get($colors, "white"), false, 16px, false, capitalize);
+
+  @include reverseResponsive(map.get($devices, "desktop")) {
+    &:hover {
+      background-color: map.get($colors, "white");
+      @include font(map.get($colors, "greenShade"));
+    }
+  }
+}
+
+form[name=contact-form] {
+  @include boxModel(55.6%);
+  padding: 56px 5% 53px 5%;
+  background-color: map.get($colors, "white");
+}
+
+.form {
+  &__title {
+    @include font(map.get($colors, "black"), false, 30px, false, capitalize);
+  }
+
+  &__description {
+    padding: 30px 0 45px 0;
+    @include font(map.get($colors, "brown"), false, 16px);
+  }
+}
+
+select[name=amount],
+select[name=month] {
+  @include boxModel(100%);
+  padding: 15px 4%;
+  @include border(transparent, 5px);
+  background-color: transparent;
+  box-shadow: 1px 1px 1px 1px map.get($colors, "white");
+}
+
+select {
+  padding: 0 5%;
+  appearance: none;
+  background: url('../images/darrow.png') right no-repeat;
+  background-size: 20px;
+  @include font(map.get($colors, "brown"), false, 16px);
+
+  &:focus {
+    background: url('../images/uparrow.png')right no-repeat;
+    background-size: 20px;
+  }
+
+}
+
+input[type=submit] {
+  @include boxModel(100%);
+  padding: 18px 0;
+  @include border(transparent, 5px);
+  background-color: map.get($colors, "greenShade");
+  @include font(map.get($colors, "white"), false, 16px, false, false, center);
+
+  @include reverseResponsive(map.get($devices, "desktop")) {
+    &:hover {
+      border-color: map.get($colors, "greenShade");
+      background-color: map.get($colors, "black");
+    }
+  }
+}
+
+@include responsive(map.get($colors, "tablet")) {
+  form[name=contact-form] {
+    @include boxModel(80%);
+    background-color: map.get($colors, "white");
+
+  }
+}
+
+@include responsive(map.get($colors, "ipad")) {
+  .information {
+    @include flex(false, false, false, center, column);
+
+    &__how-it-works {
+      padding: 40px 0;
+      margin: 0;
+      @include font(false, false, false, false, false, center);
+
+      h2 {
+        @include boxModel(100%);
+        @include font(false, false, false, false, false, center);
+      }
+    }
+  }
+
+  form[name=contact-form] {
+    @include boxModel(100%);
+    padding: 10px 5%;
+  }
+}
+
+@include responsive(map.get($colors, "mediumPhone")) {
+  .form {
+    &__title {
+      @include font(false, false, false, false, false, center);
+    }
+  }
 }

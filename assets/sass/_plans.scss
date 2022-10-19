@@ -1,0 +1,116 @@
+.plans {
+  padding: 158px 0 149px 0;
+
+
+  &__title {
+    padding: 18px 0 22px 0;
+    @include position(relative);
+    @include font(map.get($colors, "darkBlue"), false, 44px, false, false, center);
+
+    &::before {
+      @include boxModel(58px, 3px);
+      @include display(block);
+      @include position(absolute, 0, false, false, 47%);
+      background-color: map.get($colors, "greenShade");
+      content: " ";
+    }
+  }
+
+  &__description {
+    padding-bottom: 94px;
+    justify-items: center;
+    @include font(map.get($colors, "brown"), false, 16px, 600, false, center);
+  }
+
+  &__list {
+    @include flex(true);
+    justify-items: center;
+  }
+}
+
+.plan {
+  $p: &;
+  @include boxModel(45%);
+  padding: 47px 0 50px 0;
+  @include border(5px);
+  background-image: linear-gradient(#098afc, #054680);
+  @include flex(true, false, false, center, column);
+
+  a {
+    padding: 15px 24%;
+    @include border(false, 5px);
+    background-color: map.get($colors, "greenShade");
+    @include font(map.get($colors, "white"), false, 14px, 700, capitalize);
+
+    @include reverseResponsive(map.get($devices, "desktop")) {
+      &:hover {
+        background-color: map.get($colors, "white");
+        @include font(map.get($colors, "greenShade"));
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    margin: 0 3%;
+
+    #{$p}__icon::before {
+      @include icon('\f1b9', true);
+    }
+  }
+
+  &__icon {
+    @include display(block);
+    @include font(false, false, false, false, false, center);
+    text-indent: -9999px;
+
+    &::before {
+      @include font(false, false, 70px, false, false, center);
+    }
+  }
+
+  &:nth-child(1) {
+    #{$p}__icon::before {
+      @include icon('\f66f', true);
+    }
+  }
+
+  &:nth-child(3) {
+    #{$p}__icon::before {
+      @include icon('\f02d', true);
+    }
+  }
+
+  &__title {
+    padding: 65px 0 25px 0;
+    @include font(map.get($colors, "white"), false, 14px, false, false, center);
+  }
+
+  &__amount {
+    padding-bottom: 43px;
+    @include font(map.get($colors, "greenShade"), false, 26px, false, false, center);
+  }
+
+
+}
+
+.benefits {
+  @include boxModel(75%);
+  padding-bottom: 73px;
+  @include flex(true, false, false, center, column);
+}
+
+.benefit {
+  @include boxModel(100%);
+  padding-bottom: 15px;
+  @include font(map.get($colors, "white"), false, 16px);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &::before {
+    padding-right: 3%;
+    @include font(map.get($colors, "greenShade"), false, 8px);
+    @include icon('\f111');
+  }
+}

@@ -1,0 +1,56 @@
+.choose-us {
+  &__why{
+    padding-bottom: 128px;
+    @include flex(true);
+  
+    figure {
+      @include boxModel(55%);
+    }
+  }
+  &__about-us {
+    @include boxModel(48%);
+    padding: 94px 0 86px 0;
+    margin-left: 8.5%;
+    @include flex(true,false,false,false,column);
+  }
+  &__title {
+    @include font(map.get($colors,"darkBlue"),false,44px,false,capitalize);
+  }
+  
+  &__description {
+    padding: 42px 0 27px 0;
+    @include font(map.get($colors,"brown"),false,16px);
+  }
+}
+
+.features {
+  padding-bottom: 58px;
+  @include flex(true,false,false,false,column);
+}
+
+.feature {
+  padding-bottom: 15px;
+  @include font(false,false,16px);
+  &:last-child {
+    padding-bottom: 0;
+  }
+  &::before {
+    padding-right: 3%;
+    @include font(map.get($colors,"blue"),false,8px);
+    @include icon('\f111');
+  }
+  
+}
+
+.about-btn {
+  @include boxModel(20%);
+  padding: 15px 3.7%;
+  @include border(false,5px);
+  background-color: map.get($colors,"greenShade");
+  @include font(map.get($colors,"white"),false,fasle,false,capitalize,center);
+  @include reverseResponsive(map.get($devices,"desktop")){
+    &:hover {
+      background-color:map.get($colors,"black");
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.how-it-works {
+  padding: 154px 0 185px 0;
+
+  &__description {
+    padding-bottom: 96px;
+    @include font(map.get($colors, "brown"), false, 16px, false, false, center);
+  }
+
+  &__title {
+    padding: 18px 0 22px 0;
+    @include position(relative);
+    @include font(map.get($colors, "darkBlue"), false, 44px, false, false, center);
+
+    &::before {
+      @include boxModel(58px, 3px);
+      @include display(block);
+      @include position(absolute, 0, false, false, 47%);
+      background-color: map.get($colors, "greenSahde");
+      content: " ";
+    }
+  }
+}
+
+
+.steps {
+  @include flex(true, false, center);
+  justify-items: center;
+}
+
+.step {
+  @include boxModel(33%);
+
+  &:nth-child(2) {
+    margin: 0 5%;
+  }
+
+  &__number {
+    padding: 25px;
+    @include border(false, 50%);
+    @include display(inline-block);
+    background-color: map.get($colors, "lightBlue");
+    @include font(map.get($colors, "greenShade"));
+  }
+
+  &__title {
+    padding: 25px 0 20px 0;
+    @include font(false, fasle, 24px);
+  }
+
+  &__description {
+    @include font(map.get($colors, "brown"), false, 16px);
+    line-height: 1.7;
+  }
+}
