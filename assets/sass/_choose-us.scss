@@ -5,6 +5,9 @@
   
     figure {
       @include boxModel(55%);
+      @include responsive(map.get($devices,ipad)) {
+        img { @include boxModel(false,100%);}
+      }
     }
   }
   &__about-us {
@@ -53,4 +56,7 @@
       background-color:map.get($colors,"black");
     }
   }
+  @include responsive(map.get($devices,ipad)) {
+    & { @include boxModel(40%);}
+}
 }

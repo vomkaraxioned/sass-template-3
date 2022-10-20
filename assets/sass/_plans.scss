@@ -25,6 +25,10 @@
   &__list {
     @include flex(true);
     justify-items: center;
+
+    @include responsive(map.get($devices,"ipad")){
+      @include flex(false,false,center,center,column);
+    }
   }
 }
 
@@ -52,6 +56,9 @@
 
   &:nth-child(2) {
     margin: 0 3%;
+    @include responsive(map.get($devices,"ipad")){
+      margin: 40px 0;
+    }
 
     #{$p}__icon::before {
       @include icon('\f1b9', true);

@@ -1,0 +1,116 @@
+.footer {
+  padding: 40px 20px;
+
+  &__links {
+    @include flex(true);
+  }
+
+  a {
+    @include reverseResponsive(map.get($devices,"desktop")){
+    &:hover{
+      @include font(map.get($colors, "greenShade"));
+    }
+    }
+  }
+}
+
+.link {
+  $link : &;
+  @include flex(true,false,false,false,column);
+
+  a {
+    padding: 5px 0;
+    @include font(map.get($colors, "black"), false, 16px);
+
+    &#{$link}__logo{ 
+      padding-bottom: 30px;
+      @include font(map.get($colors, "black"), false, 24px, 700);
+  
+      @include reverseResponsive(map.get($devices, "desktop")) {
+        &::before {
+          padding: 8px;
+          @include border(false, 50%);
+          background-color: map.get($colors, "lightGreen");
+          @include font(map.get($colors, "white"));
+          @include icon('\e1b0');
+        }
+      }
+    }
+  }
+
+  &__title {
+    padding-bottom: 30px;
+    @include font(map.get($colors, "black"),fasle,24px,500);
+  }
+
+  &:nth-child(1) {
+    @include flex(false,30%);
+  }
+  &:nth-child(2) {
+    @include flex(false,20%);
+  }
+  &:nth-child(3) {
+    @include flex(false,20%);
+  }
+  &:nth-child(4) {
+    @include flex(false,30%);
+  }
+}
+
+.copyright {
+  padding-top: 40px;;
+   text-align: center;
+   a {
+     @include font(map.get($colors,"greenShade"));
+     @include reverseResponsive(map.get($devices,"desktop")){
+       &:hover {
+        @include font(map.get($colors,"brown"));
+       }
+     }
+   }
+}
+
+.useful-links {
+  @include flex(true,false,false,false,column);
+
+  &__link {
+    padding-bottom: 20px ;
+  }
+}
+
+.services {
+  @include flex(true,false,false,false,column);
+
+  .service {
+    padding-bottom: 20px ;
+  }
+}
+
+.subscribe-mail {
+  padding: 2px 0;
+  @include flex(true);
+  @include border(1px solid map.get($colors,"lightShade"));
+  &__email {
+    @include flex(true,70%);
+    input {
+      @include boxModel(100%);
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__btn {
+    @include flex(true,30%);
+  }
+}
+
+@include responsive(map.get($devices,"ipad")) {
+  .footer {
+    &__links {
+      @include flex(false,false,false,false,column);
+    }
+    .link {
+      padding-bottom: 40px;
+    }
+  }
+}

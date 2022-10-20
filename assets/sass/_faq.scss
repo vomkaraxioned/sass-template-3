@@ -7,6 +7,9 @@
       @include boxModel(50%);
       max-height: 700px;
       overflow: hidden;
+      @include responsive(map.get($devices,ipad)) {
+        img { @include boxModel(false,100%);}
+      }
     }
   }
 

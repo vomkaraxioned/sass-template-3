@@ -1,3 +1,23 @@
 $autoMargin : 0 auto;
-$devices:("desktop":"1024px","tablet":"995px","ipad":"768px","largePhone":"540px","mediumPhone":"480px","smallPhone":"320px");
-$colors : ("greenShade":#33d4d6,"blue":#087de3,"darkBlue":#011e38,"white":#fff,"lightGreen":#1daeeb,"black":#000, "brown":#9d989b,"lightBlue":#ddf0ff,"blackShade":#454545); 
+
+$devices:(
+"desktop":"1024px",
+"tablet":"995px",
+"ipad":"768px",
+"largePhone":"540px",
+"mediumPhone":"480px",
+"smallPhone":"320px"
+);
+
+$colors : (
+"greenShade":#33d4d6,
+"blue":#087de3,
+"darkBlue":#011e38,
+"white":#fff,
+"lightGreen":#1daeeb,
+"black":#000,
+ "brown":#9d989b,
+ "lightBlue":#ddf0ff,
+ "blackShade":#454545,
+ "lightShade":#e1e1e1
+ ); 

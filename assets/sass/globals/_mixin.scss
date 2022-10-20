@@ -198,7 +198,7 @@
 }
 
 @mixin breakpoint($min, $max) {
-  @media screen and (min-device-width: $min+"px") and (max-device-width: $max+"px") {
+  @media screen and (min-device-width: $min) and (max-device-width: $max) {
     @content;
   }
 }

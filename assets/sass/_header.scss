@@ -205,7 +205,7 @@ nav {
 
 @include responsive(map.get($devices, "ipad")) {
   .header {
-    .navigation {
+    &__navigation {
       @include display(none);
     }
   }

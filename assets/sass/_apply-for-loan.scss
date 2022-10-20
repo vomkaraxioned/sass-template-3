@@ -1,0 +1,34 @@
+.apply-for-loan {
+  padding: 138px 0;
+  margin: 142px 0;
+  @include backgroundImage('../images/laptop.jpg', rgba(0, 0, 0, .4),true );
+
+  .wrapper {
+    @include flex(true);
+  }
+  
+  &__title {
+    @include boxModel(70%);
+    @include font(map.get($colors,"white"),false,42px);
+  }
+
+  &__btn {
+    flex: 1;
+    flex-shrink: 0;
+  }
+}
+
+.apply-loan-btn {
+  padding: 15px 8.7%;
+  @include border(false,5px);
+  background-color: map.get($colors,"greenShade");
+  @include font(map.get($colors,"white"),false,fasle,false,false,center);
+  float: right;
+
+  @include reverseResponsive(map.get($devices, "desktop")) { 
+    &:hover {
+      background-color: map.get($colors,"white");
+      @include font(map.get($colors,"greenShade"));
+    }
+  }
+}
