@@ -8,6 +8,12 @@
       @include responsive(map.get($devices,ipad)) {
         img { @include boxModel(false,100%);}
       }
+      @include responsive(map.get($devices,"ipad")){
+        @include boxModel(100%);
+      }
+    }
+    @include responsive(map.get($devices,"ipad")){
+      @include flex(false,false,center,center,column);
     }
   }
   &__about-us {
@@ -15,6 +21,9 @@
     padding: 94px 0 86px 0;
     margin-left: 8.5%;
     @include flex(true,false,false,false,column);
+    @include responsive(map.get($devices,"ipad")){
+      @include boxModel(100%);
+    }
   }
   &__title {
     @include font(map.get($colors,"darkBlue"),false,44px,false,capitalize);

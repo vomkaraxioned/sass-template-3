@@ -2,21 +2,29 @@
   &__wrapper {
     @include boxModel(100%);
     @include flex(true);
-
+    @include responsive(map.get($devices,"ipad")){
+      @include flex(false,false,center,center,column);
+    }
+    
     figure {
       @include boxModel(50%);
       max-height: 700px;
       overflow: hidden;
       @include responsive(map.get($devices,ipad)) {
+        @include boxModel(100%);
         img { @include boxModel(false,100%);}
       }
     }
   }
-
+  
   &__frequent-question {
     @include boxModel(45%);
     padding: 140px 0;
     margin-left: 6%;
+    
+      @include responsive(map.get($devices,"ipad")){
+        @include boxModel(80%);
+      }
   }
 
   &__title {
@@ -33,6 +41,9 @@
     @include boxModel(77%);
     margin-bottom: 25px;
     box-shadow: 0 1px #cdcdcd;
+    @include responsive(map.get($devices,"ipad")){
+      @include boxModel(100%);
+    }
   }
   
   &__title {

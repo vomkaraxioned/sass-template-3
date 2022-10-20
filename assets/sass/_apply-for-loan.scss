@@ -1,15 +1,23 @@
 .apply-for-loan {
   padding: 138px 0;
   margin: 142px 0;
-  @include backgroundImage('../images/laptop.jpg', rgba(0, 0, 0, .4),true );
+  @include backgroundImage('../images/laptop.jpg', rgba(0, 0, 0, .4), true);
 
   .wrapper {
     @include flex(true);
+    @include responsive(map.get($devices,"ipad")){
+      @include flex(false,false,center,center,column);
+    }
   }
-  
+
   &__title {
     @include boxModel(70%);
-    @include font(map.get($colors,"white"),false,42px);
+    @include font(map.get($colors, "white"), false, 42px);
+    @include responsive(map.get($devices,"ipad")){
+      @include boxModel(100%);
+      padding-bottom: 20px;
+      text-align: center;
+    }
   }
 
   &__btn {
@@ -20,15 +28,15 @@
 
 .apply-loan-btn {
   padding: 15px 8.7%;
-  @include border(false,5px);
-  background-color: map.get($colors,"greenShade");
-  @include font(map.get($colors,"white"),false,fasle,false,false,center);
+  @include border(false, 5px);
+  background-color: map.get($colors, "greenShade");
+  @include font(map.get($colors, "white"), false, fasle, false, false, center);
   float: right;
 
-  @include reverseResponsive(map.get($devices, "desktop")) { 
+  @include reverseResponsive(map.get($devices, "desktop")) {
     &:hover {
-      background-color: map.get($colors,"white");
-      @include font(map.get($colors,"greenShade"));
+      background-color: map.get($colors, "white");
+      @include font(map.get($colors, "greenShade"));
     }
   }
 }

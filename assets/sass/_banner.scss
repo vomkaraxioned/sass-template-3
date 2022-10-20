@@ -4,6 +4,9 @@
 
   &__information {
     @include flex(true);
+    @include responsive(map.get($devices,"ipad")){
+      @include flex(false,false,false,false,column);
+    }
   }
 
   &__how-it-works {

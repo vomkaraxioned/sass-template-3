@@ -27,6 +27,7 @@
     justify-items: center;
 
     @include responsive(map.get($devices,"ipad")){
+      @include boxModel(100%);
       @include flex(false,false,center,center,column);
     }
   }
@@ -96,7 +97,9 @@
     padding-bottom: 43px;
     @include font(map.get($colors, "greenShade"), false, 26px, false, false, center);
   }
-
+  @include responsive(map.get($devices,"ipad")){
+    @include boxModel(100%);
+  }
 
 }
 

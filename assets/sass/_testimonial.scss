@@ -7,6 +7,9 @@
           @include border(false,50%);
           @include position(relative);
           flex-shrink: 0;
+          @include responsive(map.get($devices,"ipad")){
+            @include boxModel(40%);
+          }
           img {
               @include border(false,50%);
           }
@@ -18,7 +21,14 @@
               background-color: map.get($colors,"greenShade");
               @include font( map.get($colors,"white",false,21px));
               @include icon('\f10d');
+              @include responsive(map.get($devices,"ipad")){
+               padding: 10px;
+              }
           }
+      }
+      @include responsive(map.get($devices,"ipad")){
+          padding: 80px 0;
+        @include flex(false,false,center,center,column);
       }
   }
   &__feedback {
@@ -41,6 +51,9 @@
   &__brands {
       padding-bottom: 32px;
       @include flex(true);
+      @include responsive(map.get($devices,"ipad")){
+        @include flex(false,false,center,center,column);
+      }
   }
 }
 .control {
@@ -51,7 +64,7 @@
   @include font(map.get($colors,"greenShade"),false,16px);
   background-color: map.get($colors,"white");
   text-indent: -9999px;
-  .control:nth-child(1){
+    &:nth-child(1){
           &::after {
           @include icon('\f105',true);
           @include reverseResponsive(map.get($devices,"desktop")){
@@ -61,7 +74,7 @@
       }
       }
   }
-  .control:nth-child(2){
+  &:nth-child(2){
       &::after {
         @include icon('\f104',true);
       }
@@ -83,5 +96,9 @@
       img {
           object-position: center;
       }
+  }
+  @include responsive(map.get($devices,"ipad")){
+    padding-bottom: 20px;
+    margin-right: 0;
   }
 }
